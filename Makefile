@@ -4,8 +4,8 @@ LDFLAGS := -Lclang/lib -lclang -Wl,-rpath,'@loader_path/clang/lib'
 
 .DEFAULT_GOAL := structgen
 
-structgen: structgen.c
-	cc $(CFLAGS) $(LDFLAGS) -o $@ $^
+structgen: structgen.c example/example.h
+	cc $(CFLAGS) $(LDFLAGS) -o $@ $<
 
 .PHONY: run
 run: structgen
